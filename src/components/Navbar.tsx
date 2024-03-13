@@ -6,6 +6,7 @@ function Navbar() {
   return (
     <HStack>
       <Image src={navbar_logo} boxSize="37" />
+      <Text>Navigation bar!</Text>
       <ColorModeSwitch></ColorModeSwitch>
     </HStack>
   );
