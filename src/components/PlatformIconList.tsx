@@ -11,7 +11,7 @@ import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 import { Game, Platform } from "../hooks/useGames";
-import { Icon, Text } from "@chakra-ui/react";
+import { HStack, Icon, Text } from "@chakra-ui/react";
 
 interface Props {
   platforms: Platform[];
@@ -31,9 +31,11 @@ function PlatformIconList({ platforms }: Props) {
   };
   return (
     <>
-      {platforms.map((platform) => {
-        <Icon as={iconMap[platform.slug]} />;
-      })}
+      <HStack>
+        {platforms.map((platform) => (
+          <Icon margin="1" as={iconMap[platform.slug]} />
+        ))}
+      </HStack>
     </>
   );
 }
