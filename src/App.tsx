@@ -10,14 +10,19 @@ function App() {
     base: '"nav" "main"',
     lg: '"nav nav" "aside main"', // wider then 1024
   };
+
+  const templeteColumns = {
+    base: "1fr",
+    lg: "250px 1fr",
+  };
   return (
     <>
-      <Grid templateAreas={templateArea}>
+      <Grid templateAreas={templateArea} templateColumns={templeteColumns}>
         <GridItem area="nav">
           <Navbar></Navbar>
         </GridItem>
         <Show above="lg">
-          <GridItem width="200px" area="aside">
+          <GridItem area="aside" paddingX={5}>
             <GenreList />
           </GridItem>
         </Show>

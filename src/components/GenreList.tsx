@@ -1,4 +1,11 @@
-import { SkeletonText, Text } from "@chakra-ui/react";
+import {
+  HStack,
+  List,
+  ListItem,
+  SkeletonText,
+  Text,
+  Image,
+} from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 
 function GenreList() {
@@ -25,11 +32,20 @@ function GenreList() {
           </li>
         </ul>
       )}
-      <ul>
+      <List>
         {data.map((genre) => (
-          <li key={genre.id}>{genre.name}</li>
+          <ListItem key={genre.id} paddingY={3}>
+            <HStack>
+              <Image
+                boxSize="32px"
+                borderRadius={10}
+                src={genre.image_background}
+              ></Image>
+              <Text>{genre.name}</Text>
+            </HStack>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </>
   );
 }
