@@ -1,6 +1,7 @@
 import { Button, Grid, GridItem, Show, useColorMode } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
+import GenreList from "./components/GenreList";
 
 function App() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -16,11 +17,11 @@ function App() {
           <Navbar></Navbar>
         </GridItem>
         <Show above="lg">
-          <GridItem area="aside" bg="gold">
-            aside
+          <GridItem area="aside">
+            <GenreList />
           </GridItem>
         </Show>
-        <GridItem area="main" bg="dodgerblue">
+        <GridItem area="main">
           <GameGrid />
         </GridItem>
       </Grid>
