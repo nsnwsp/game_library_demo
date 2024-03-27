@@ -9,6 +9,7 @@ function useGenres() {
   return useData<Genre>("/genres");
 }
 
-//const useGenres = () => useData<Genre>("/genres");
+// alternativamente, con arrow function:
+// const useGenres = () => useData<Genre>("/genres");
 
 export default useGenres;
