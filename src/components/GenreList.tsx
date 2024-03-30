@@ -5,6 +5,7 @@ import {
   SkeletonText,
   Text,
   Image,
+  Spinner,
 } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 
@@ -13,25 +14,7 @@ function GenreList() {
   return (
     <>
       {error && <Text>{error}</Text>}
-      {isLoading && (
-        <ul>
-          <li>
-            <SkeletonText />
-          </li>
-          <li>
-            <SkeletonText />
-          </li>
-          <li>
-            <SkeletonText />
-          </li>
-          <li>
-            <SkeletonText />
-          </li>
-          <li>
-            <SkeletonText />
-          </li>
-        </ul>
-      )}
+      {isLoading && <Spinner />}
       <List>
         {data.map((genre) => (
           <ListItem key={genre.id} paddingY={3}>
