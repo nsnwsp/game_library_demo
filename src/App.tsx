@@ -6,7 +6,6 @@ import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 
 function App() {
-  const { colorMode, toggleColorMode } = useColorMode();
   const [selectedGenre, setGenre] = useState<Genre | null>(null);
 
   const templateArea = {
@@ -27,11 +26,11 @@ function App() {
         </GridItem>
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
-            <GenreList onGenreSelection={setGenre} />
+            <GenreList onGenreSelection={(genre) => setGenre(genre)} />
           </GridItem>
         </Show>
         <GridItem area="main">
-          <GameGrid />
+          <GameGrid selectedGenre={selectedGenre} />
         </GridItem>
       </Grid>
     </>

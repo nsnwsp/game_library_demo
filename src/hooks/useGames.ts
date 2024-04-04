@@ -1,4 +1,5 @@
 import useData from "./useData";
+import { Genre } from "./useGenres";
 
 export interface Game {
   id: number;
@@ -12,8 +13,10 @@ export interface Platform {
   id: number;
   slug: string;
 }
-function useGames() {
-  return useData<Game>("/games");
+function useGames(selectedGenre: Genre | null) {
+  return useData<Game>("/games", { params: { genre: selectedGenre?.id } }, [
+    selectedGenre?.id,
+  ]);
 }
 
 export default useGames;
