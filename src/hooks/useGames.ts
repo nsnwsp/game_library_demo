@@ -14,7 +14,7 @@ export interface Platform {
   slug: string;
 }
 function useGames(selectedGenre: Genre | null) {
-  return useData<Game>("/games", { params: { genre: selectedGenre?.id } }, [
+  return useData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
     selectedGenre?.id,
   ]);
 }
