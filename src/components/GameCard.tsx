@@ -10,7 +10,11 @@ interface Props {
 
 function GameCard({ game }: Props) {
   return (
-    <Card borderRadius={10} overflow="hidden">
+    <Card
+      _hover={{ transform: "scale(1.05)" }}
+      borderRadius={10}
+      overflow="hidden"
+    >
       <Image src={getCroppedImageUrl(game.background_image)} alt="game_image" />
       <CardBody>
         <Heading size="md">{game.name}</Heading>
