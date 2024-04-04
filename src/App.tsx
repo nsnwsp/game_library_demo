@@ -2,9 +2,12 @@ import { Button, Grid, GridItem, Show, useColorMode } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
+import { useState } from "react";
+import { Genre } from "./hooks/useGenres";
 
 function App() {
   const { colorMode, toggleColorMode } = useColorMode();
+  const [selectedGenre, setGenre] = useState<Genre | null>(null);
 
   const templateArea = {
     base: '"nav" "main"',
@@ -15,6 +18,7 @@ function App() {
     base: "1fr",
     lg: "250px 1fr",
   };
+
   return (
     <>
       <Grid templateAreas={templateArea} templateColumns={templeteColumns}>
@@ -23,7 +27,7 @@ function App() {
         </GridItem>
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
-            <GenreList />
+            <GenreList onGenreSelection={setGenre} />
           </GridItem>
         </Show>
         <GridItem area="main">
