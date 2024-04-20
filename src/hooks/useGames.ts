@@ -1,5 +1,6 @@
 import useData from "./useData";
 import { Genre } from "./useGenres";
+import { Platform } from "./usePlatforms";
 
 export interface Game {
   id: number;
@@ -9,10 +10,6 @@ export interface Game {
   metacritic: string;
 }
 
-export interface Platform {
-  id: number;
-  slug: string;
-}
 function useGames(selectedGenre: Genre | null) {
   return useData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
     selectedGenre?.id,
