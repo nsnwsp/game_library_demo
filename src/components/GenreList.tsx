@@ -9,6 +9,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
+import { useState } from "react";
 
 interface Props {
   onGenreSelection: (genre: Genre) => void;
@@ -16,6 +17,8 @@ interface Props {
 
 function GenreList({ onGenreSelection }: Props) {
   const { data, error, isLoading } = useGenres();
+  const [highlightedGenre, setHighlitghted] = useState<Genre | null>(null); // should I receive the current selected genre from the app component?
+
   return (
     <>
       {error && <Text>{error}</Text>}
@@ -29,7 +32,16 @@ function GenreList({ onGenreSelection }: Props) {
                 borderRadius={10}
                 src={genre.image_background}
               ></Image>
-              <Button variant="link" onClick={() => onGenreSelection(genre)}>
+              <Button
+                fontWeight={
+                  highlightedGenre?.id === genre.id ? "bold" : "normal"
+                }
+                variant="link"
+                onClick={() => {
+                  setHighlitghted(genre);
+                  onGenreSelection(genre);
+                }}
+              >
                 {genre.name}
               </Button>
             </HStack>

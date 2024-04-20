@@ -4,7 +4,10 @@ function ColorModeSwitch() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <HStack>
-      <Switch onChange={toggleColorMode}></Switch>
+      <Switch
+        isChecked={colorMode === "dark" ? true : false}
+        onChange={toggleColorMode}
+      ></Switch>
       <Text>{colorMode === "dark" ? "Dark Mode" : "Light Mode"}</Text>
     </HStack>
   );
