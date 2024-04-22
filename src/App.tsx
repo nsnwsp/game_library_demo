@@ -6,6 +6,7 @@ import {
   Show,
   useColorMode,
 } from "@chakra-ui/react";
+import "./App.css";
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
@@ -13,13 +14,13 @@ import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePlatforms";
-import { Game } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -39,7 +40,11 @@ function App() {
     <>
       <Grid templateAreas={templateArea} templateColumns={templeteColumns}>
         <GridItem area="nav">
-          <Navbar></Navbar>
+          <Navbar
+            onSearch={(searchText) =>
+              setGameQuery({ ...gameQuery, searchText })
+            }
+          ></Navbar>
         </GridItem>
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
