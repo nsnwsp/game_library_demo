@@ -10,12 +10,16 @@ function EmojiScore({ rating }: Props) {
   }
 
   const emojiMap: { [key: number]: string } = {
-    3: "neutral face",
-    4: "star-truck",
-    5: "rocket",
+    3: "😌️",
+    4: "🤩️",
+    5: "🤯️",
   };
 
-  return <Emoji text={emojiMap[rating]} />;
+  return (
+    <span style={{ fontSize: "1.5em" }}>
+      <Emoji text={emojiMap[rating]} />
+    </span>
+  );
 }
 
 export default EmojiScore;

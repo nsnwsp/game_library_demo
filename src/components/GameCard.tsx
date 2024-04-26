@@ -24,7 +24,9 @@ function GameCard({ game }: Props) {
           ></PlatformIconList>
           <GameCriticScore score={parseInt(game.metacritic)} />
         </HStack>
-        <Heading size="md">{game.name}</Heading>
+        <Heading paddingBottom={1} size="md">
+          {game.name}
+        </Heading>
         <EmojiScore rating={game.rating_top}></EmojiScore>
       </CardBody>
     </Card>
