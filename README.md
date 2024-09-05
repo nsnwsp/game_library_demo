@@ -6,3 +6,5 @@ The frontend fetches the data from an external API and offers a few options for 
 ![1st screenshot](./screenshots/1.png) ![2nd screenshot](./screenshots/2.png)
 ![3rdD screenshot](./screenshots/3a.png)
 ![3rdL screenshot](./screenshots/3b.png)
+
+*games data provided by Rawg.io API*
